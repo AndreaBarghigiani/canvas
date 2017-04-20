@@ -1,0 +1,35 @@
+
+// Gradients
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+@mixin checker($first, $second) {
+  background-color: $first;
+  background-image: linear-gradient(45deg, $second 25%, transparent 25%, transparent 75%, $second 75%, $second),
+  linear-gradient(45deg, $second 25%, transparent 25%, transparent 75%, $second 75%, $second);
+  background-size:60px 60px;
+  background-position:0 0, 30px 30px
+}
+
+@mixin japanese-cube($bg-color: #556) { // TODO size
+  $alt-one: darken($bg-color, 7%);
+  $alt-two: lighten($bg-color, 24%);
+
+  background-color: $bg-color;
+  background-image: linear-gradient(30deg, $alt-one 12%, transparent 12.5%, transparent 87%, $alt-one 87.5%, $alt-one),
+  linear-gradient(150deg, $alt-one 12%, transparent 12.5%, transparent 87%, $alt-one 87.5%, $alt-one),
+  linear-gradient(30deg, $alt-one 12%, transparent 12.5%, transparent 87%, $alt-one 87.5%, $alt-one),
+  linear-gradient(150deg, $alt-one 12%, transparent 12.5%, transparent 87%, $alt-one 87.5%, $alt-one),
+  linear-gradient(60deg, $alt-two 25%, transparent 25.5%, transparent 75%, $alt-two 75%, $alt-two),
+  linear-gradient(60deg, $alt-two 25%, transparent 25.5%, transparent 75%, $alt-two 75%, $alt-two);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}

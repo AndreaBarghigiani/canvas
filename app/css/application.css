@@ -1,0 +1,129 @@
+body {
+  background: #a8afc5;
+  background: linear-gradient(to right, #a8afc5, #aeaecc);
+  font-family: sans-serif; }
+
+canvas {
+  background: #fff;
+  display: block;
+  margin: 50px auto 10px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.75);
+  cursor: crosshair; }
+
+.controls {
+  min-height: 60px;
+  margin: 0 auto;
+  width: 600px;
+  border-radius: 5px;
+  overflow: hidden; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  float: left;
+  padding: 10px 0 20px;
+  width: 100%;
+  text-align: center; }
+  ul li {
+    display: inline-block;
+    margin: 0 5px 10px; }
+
+li, #newColor {
+  display: block;
+  height: 54px;
+  width: 54px;
+  border-radius: 60px;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.75); }
+
+.red {
+  background-color: #E53935; }
+
+.green {
+  background-color: #68dd95; }
+
+.yellow {
+  background-color: #FFEA00; }
+
+#revealColorSelect {
+  background: url("../img/add.svg") no-repeat center;
+  background-size: contain;
+  box-shadow: none;
+  height: 54px;
+  width: 54px; }
+
+.selected {
+  border: 4px solid #fff;
+  width: 46px;
+  height: 46px; }
+
+.button-add {
+  background: #2ea6b2;
+  box-shadow: 0 3px 0 0 #2d4b84;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  line-height: 40px;
+  outline: none;
+  text-shadow: 0 1px #6A845F; }
+
+/* New Color Palette */
+#colorSelect {
+  background: #fff;
+  border-radius: 5px;
+  clear: both;
+  margin: 20px auto 0;
+  padding: 10px;
+  width: 305px;
+  position: relative;
+  display: none; }
+
+#colorSelect:after {
+  bottom: 100%;
+  left: 50%;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border: 10px rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  margin-left: -10px; }
+
+#newColor {
+  width: 80px;
+  height: 80px;
+  border-radius: 3px;
+  box-shadow: none;
+  float: left;
+  border: none;
+  margin: 10px 20px 20px 10px; }
+
+.sliders p {
+  margin: 8px 0;
+  vertical-align: middle; }
+
+.sliders label {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 35px;
+  font-size: 14px;
+  color: #6D574E; }
+
+.sliders input {
+  position: relative;
+  top: 2px; }
+
+#colorSelect button {
+  border: none;
+  border-top: 1px solid #6A845F;
+  border-radius: 0 0 5px 5px;
+  clear: both;
+  margin: 10px -10px -7px;
+  padding: 5px 10px;
+  width: 325px; }
+
+/*# sourceMappingURL=application.css.map */
