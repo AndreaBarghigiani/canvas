@@ -1,12 +1,12 @@
 body {
-  background-color: #faf0e6;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23cdc8c3' fill-opacity='0.56'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+  background: #9f79a7;
+  background: linear-gradient(to right, #9f79a7, #a48cd4);
   font-family: sans-serif; }
 
-canvas {
+.drawing-area {
   background: #fff;
-  border: 5px solid #e1d9d2;
-  border-radius: 7px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.75);
   cursor: crosshair;
   display: block;
   margin: 50px auto 10px; }
@@ -30,6 +30,7 @@ canvas {
 .color-new {
   border: 0;
   border-radius: 60px;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.75);
   cursor: pointer;
   display: block;
   height: 54px;
@@ -39,14 +40,17 @@ canvas {
   display: inline-block;
   margin: 0 5px 10px; }
 
-.color:first-child {
-  background-color: #e53935; }
+.color:nth-child(1) {
+  background-color: #d33431; }
 
 .color:nth-child(2) {
-  background-color: #68DD95; }
+  background-color: #64d58f; }
 
 .color:nth-child(3) {
-  background-color: #ffea00; }
+  background-color: #f0dc00; }
+
+.color:nth-child(4) {
+  background-color: #30a1e7; }
 
 .control {
   box-shadow: none;
@@ -57,22 +61,21 @@ canvas {
     background-size: contain; }
 
 .selected {
-  border: 4px solid #c4beba;
+  border: 4px solid #fff;
   height: 46px;
   width: 46px; }
 
 .button-add {
-  background: #2ea6b2;
-  box-shadow: 0 3px 0 0 #2d4b84;
+  background: #d3be15;
+  box-shadow: 0 5px 0 0 #c0ac1a;
   color: #fff;
   cursor: pointer;
   display: block;
   font-size: 16px;
   line-height: 40px;
   outline: none;
-  text-shadow: 0 1px #6A845F; }
+  text-shadow: 0 1px #c0ac1a; }
 
-/* New Color Palette */
 #colorSelect {
   background: #fff;
   border-radius: 5px;

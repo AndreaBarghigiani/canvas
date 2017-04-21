@@ -1,0 +1,63 @@
+@import "helpers";
+
+.button-add {
+  background: $button;
+  box-shadow: 0 5px 0 0 $button-shadow;
+  color: $light;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  line-height: 40px;
+  outline: none;
+  text-shadow: 0 1px $button-shadow;
+}
+
+#colorSelect {
+  background: #fff;
+  border-radius: 5px;
+  clear: both;
+  margin: 20px auto 0;
+  padding: 10px;
+  width: 305px;
+  position: relative;
+  display: none;
+}
+
+.color-new {
+  width: 80px;
+  height: 80px;
+  border-radius: 3px;
+  box-shadow: none;
+  float: left;
+  border: none;
+  margin: 10px 20px 20px 10px;
+
+}
+
+.sliders p {
+  margin: 8px 0;
+  vertical-align: middle;
+}
+
+.sliders label {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 35px;
+  font-size: 14px;
+  color: #6D574E;
+}
+
+.sliders input {
+  position: relative;
+  top: 2px;
+}
+
+#colorSelect button {
+  border: none;
+  border-top: 1px solid #6A845F;
+  border-radius: 0 0 5px 5px;
+  clear: both;
+  margin: 10px -10px -7px;
+  padding: 5px 10px;
+  width: 325px;
+}

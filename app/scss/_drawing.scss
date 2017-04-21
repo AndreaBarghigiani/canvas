@@ -1,0 +1,73 @@
+@import 'helpers';
+
+body {
+  @include gradient($primary, $secondary, 'horizontal');
+  font-family: sans-serif;
+}
+
+.drawing-area {
+  background: $light;
+  border-radius: 5px;
+  box-shadow: 7px 7px 10px 0 $shadow;
+  cursor: crosshair;
+  display: block;
+  margin: 50px auto 10px;
+}
+
+.controls {
+  border-radius: 5px;
+  margin: 0 auto;
+  min-height: 60px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.colors-list {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.color-element,
+.color-new {
+  border: 0;
+  border-radius: 60px;
+  box-shadow: 3px 3px 0 0 $shadow;
+  cursor: pointer;
+  display: block;
+  height: 54px;
+  width: 54px;
+}
+
+.color-element {
+  display: inline-block;
+  margin: 0 5px 10px;
+}
+
+.color {
+  @for $i from 1 to 5 {
+    &:nth-child(#{$i}) {
+      background-color: nth($colors, $i);
+    }
+  }
+}
+
+.control {
+  box-shadow: none;
+  height: 54px;
+  width: 54px;
+
+  &-add {
+    background: url('../img/add.svg') no-repeat center;
+    background-size: contain;
+  }
+}
+
+.selected {
+  border: 4px solid $light;
+  height: 46px;
+  width: 46px;
+}
