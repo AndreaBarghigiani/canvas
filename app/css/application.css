@@ -1,63 +1,65 @@
 body {
-  background: #a8afc5;
-  background: linear-gradient(to right, #a8afc5, #aeaecc);
+  background-color: #faf0e6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23cdc8c3' fill-opacity='0.56'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
   font-family: sans-serif; }
 
 canvas {
   background: #fff;
+  border: 5px solid #e1d9d2;
+  border-radius: 7px;
+  cursor: crosshair;
   display: block;
-  margin: 50px auto 10px;
-  border-radius: 5px;
-  box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.75);
-  cursor: crosshair; }
+  margin: 50px auto 10px; }
 
 .controls {
-  min-height: 60px;
-  margin: 0 auto;
-  width: 600px;
   border-radius: 5px;
-  overflow: hidden; }
+  margin: 0 auto;
+  min-height: 60px;
+  overflow: hidden;
+  width: 600px; }
 
-ul {
+.colors-list {
+  float: left;
   list-style: none;
   margin: 0;
-  float: left;
   padding: 10px 0 20px;
-  width: 100%;
-  text-align: center; }
-  ul li {
-    display: inline-block;
-    margin: 0 5px 10px; }
+  text-align: center;
+  width: 100%; }
 
-li, #newColor {
-  display: block;
-  height: 54px;
-  width: 54px;
+.color-element,
+.color-new {
+  border: 0;
   border-radius: 60px;
   cursor: pointer;
-  border: 0;
-  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.75); }
-
-.red {
-  background-color: #E53935; }
-
-.green {
-  background-color: #68dd95; }
-
-.yellow {
-  background-color: #FFEA00; }
-
-#revealColorSelect {
-  background: url("../img/add.svg") no-repeat center;
-  background-size: contain;
-  box-shadow: none;
+  display: block;
   height: 54px;
   width: 54px; }
 
+.color-element {
+  display: inline-block;
+  margin: 0 5px 10px; }
+
+.color:first-child {
+  background-color: #e53935; }
+
+.color:nth-child(2) {
+  background-color: #68DD95; }
+
+.color:nth-child(3) {
+  background-color: #ffea00; }
+
+.control {
+  box-shadow: none;
+  height: 54px;
+  width: 54px; }
+  .control-add {
+    background: url("../img/add.svg") no-repeat center;
+    background-size: contain; }
+
 .selected {
-  border: 4px solid #fff;
-  width: 46px;
-  height: 46px; }
+  border: 4px solid #c4beba;
+  height: 46px;
+  width: 46px; }
 
 .button-add {
   background: #2ea6b2;
@@ -81,19 +83,7 @@ li, #newColor {
   position: relative;
   display: none; }
 
-#colorSelect:after {
-  bottom: 100%;
-  left: 50%;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border: 10px rgba(255, 255, 255, 0);
-  border-bottom-color: #fff;
-  margin-left: -10px; }
-
-#newColor {
+.color-new {
   width: 80px;
   height: 80px;
   border-radius: 3px;

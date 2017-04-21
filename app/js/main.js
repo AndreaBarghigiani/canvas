@@ -7,8 +7,8 @@ var mouseMovedOffCanvas = false;
 var $restOfPage = $("body");
 $(".controls").on("click", "li", function () {
   $(this).siblings().removeClass("selected");
-  if ($(this).attr('id') != 'revealColorSelect') {
-    $(this).addClass("selected");
+  if ($(this).attr('id') !== 'revealColorSelect') {
+    $(this).addClass("color-element color selected");
     color = $(this).css("background-color");
   }
 });
@@ -20,12 +20,12 @@ function changeColor() {
   var r = $("#red").val();
   var g = $("#green").val();
   var b = $("#blue").val();
-  $("#newColor").css("background-color", "rgb(" + r + "," + g + ", " + b + ")");
+  $(".color-new").css("background-color", "rgb(" + r + "," + g + ", " + b + ")");
 }
 
 $("#addNewColor").click(function () {
   var $newColor = $("<li></li>");
-  $newColor.css("background-color", $("#newColor").css("background-color"));
+  $newColor.css("background-color", $(".color-new").css("background-color"));
   $($newColor).insertBefore("#revealColorSelect");
   $newColor.click();
 });
