@@ -1,10 +1,20 @@
-var color = $(".selected").css("background-color");
-var $canvas = $("canvas");
-var context = $canvas[0].getContext("2d");
+var canvas = document.getElementsByClassName('drawing-area')[0];
+var context = canvas.getContext("2d");
 var lastEvent;
 var mouseDown = false;
 var mouseMovedOffCanvas = false;
-var $restOfPage = $("body");
+var inputs = document.querySelectorAll("input[type=range]");
+var restOfPage = document.getElementsByTagName("body");
+var selected = document.getElementsByClassName('selected')[0];
+var color = window.getComputedStyle(selected,null).getPropertyValue('background-color');
+var red = document.getElementById("red");
+var green = document.getElementById("green");
+var blue = document.getElementById("blue");
+var newColor = document.getElementsByClassName("color-new")[0];
+var buttonReveal = document.getElementById('revealColorSelect');
+var selectionDiv = document.getElementById('colorSelect');
+
+
 $(".controls").on("click", "li", function () {
   $(this).siblings().removeClass("selected");
   if ($(this).attr('id') !== 'revealColorSelect') {
@@ -12,16 +22,27 @@ $(".controls").on("click", "li", function () {
     color = $(this).css("background-color");
   }
 });
-$("#revealColorSelect").click(function () {
-  $("#colorSelect").toggle();
-});
+
+// Toggle visibility of adding panel
+
+buttonReveal.addEventListener('click', function () {
+  selectionDiv.style.display =  selectionDiv.style.display === 'block'? 'none' : 'block';
+})
+
+// Change color - sliders
 
 function changeColor() {
-  var r = $("#red").val();
-  var g = $("#green").val();
-  var b = $("#blue").val();
-  $(".color-new").css("background-color", "rgb(" + r + "," + g + ", " + b + ")");
+  var r = red.value;
+  var g = green.value;
+  var b = blue.value;
+  newColor.style.backgroundColor = "rgb(" + r + "," + g + ", " + b + ")";
 }
+
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('input', changeColor, false);
+}
+
+// Add new color
 
 $("#addNewColor").click(function () {
   var $newColor = $("<li></li>");
@@ -30,13 +51,14 @@ $("#addNewColor").click(function () {
   $newColor.click();
 });
 
-$("input[type=range]").on('input', function(){
-  changeColor();
-});
-$canvas.mousedown(function (e) {
+// Drawing functions
+
+canvas.onmousedown = function(e){
   lastEvent = e;
   mouseDown = true;
-}).mousemove(function (e) {
+}
+
+canvas.onmousemove = function (e) {
   if (mouseDown) {
     context.beginPath();
     context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
@@ -45,24 +67,25 @@ $canvas.mousedown(function (e) {
     context.stroke();
     lastEvent = e;
   }
-}).mouseup(function () {
+}
+
+canvas.onmouseup = function(e){
   mouseDown = false;
-}).mouseleave(function () {
-  if (mouseDown === true) {
-    mouseMovedOffCanvas = true;
-  }
-  else {
-    mouseMovedOffCanvas = false;
-  }
+}
+
+canvas.onmouseout = function(e){
+  mouseMovedOffCanvas = mouseDown === true;
   mouseDown = false;
-}).mouseenter(function (e) {
+}
+
+canvas.onmouseover = function (e) {
   lastEvent = e;
   if (mouseMovedOffCanvas === true) {
     mouseDown = true;
-    $canvas.mousedown(e);
   }
-});
-$restOfPage.mouseup(function () {
+}
+
+restOfPage.onmouseup = function(e){
   mouseMovedOffCanvas = false;
   mouseDown = false;
-});
+}
