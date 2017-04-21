@@ -25,17 +25,17 @@
         <li class="color-element color"></li>
         <li class="color-element control control-add" id="revealColorSelect"></li>
     </ul>
-    <div id="colorSelect"> <span class="color-new"></span>
-        <div class="sliders">
-            <p>
-                <label for="red">Red</label>
-                <input id="red" name="red" type="range" min=0 max=255 value=0> </p>
-            <p>
-                <label for="green">Green</label>
-                <input id="green" name="green" type="range" min=0 max=255 value=0> </p>
-            <p>
-                <label for="blue">Blue</label>
-                <input id="blue" name="blue" type="range" min=0 max=255 value=0> </p>
+    <div id="colorSelect" class="select"> <span class="color-new"></span>
+        <div class="select-sliders">
+            <div class="select-slider">
+                <label for="red" class="select-label">Red</label>
+                <input id="red" class="select-input" name="red" type="range" min=0 max=255 value=0> </div>
+            <div class="select-slider">
+                <label for="green" class="select-label">Green</label>
+                <input id="green" class="select-input" name="green" type="range" min=0 max=255 value=0> </div>
+                <div class="select-slider">
+                <label for="blue" class="select-label">Blue</label>
+                <input id="blue" class="select-input" name="blue" type="range" min=0 max=255 value=0> </div>
         </div>
         <div>
             <button id="addNewColor" class="button-add">Add Color</button>

@@ -67,56 +67,54 @@ body {
 
 .button-add {
   background: #d3be15;
+  border: 0;
+  border-radius: 0 0 5px 5px;
+  border-top: 1px solid #c0ac1a;
   box-shadow: 0 5px 0 0 #c0ac1a;
+  clear: both;
   color: #fff;
   cursor: pointer;
   display: block;
   font-size: 16px;
   line-height: 40px;
+  margin: 10px -10px -7px;
   outline: none;
-  text-shadow: 0 1px #c0ac1a; }
+  padding: 5px 10px;
+  text-shadow: 0 1px #c0ac1a;
+  width: 325px; }
 
-#colorSelect {
+.select {
   background: #fff;
   border-radius: 5px;
   clear: both;
-  margin: 20px auto 0;
+  display: none;
+  margin: 20px auto 5%;
   padding: 10px;
-  width: 305px;
   position: relative;
-  display: none; }
+  width: 305px; }
 
 .color-new {
-  width: 80px;
-  height: 80px;
+  border: 0;
   border-radius: 3px;
   box-shadow: none;
   float: left;
-  border: none;
-  margin: 10px 20px 20px 10px; }
+  height: 80px;
+  margin: 10px 20px 20px 10px;
+  width: 80px; }
 
-.sliders p {
+.select-slider {
   margin: 8px 0;
   vertical-align: middle; }
 
-.sliders label {
+.select-label {
+  color: #545251;
   display: inline-block;
-  margin: 0 10px 0 0;
-  width: 35px;
   font-size: 14px;
-  color: #6D574E; }
+  margin: 0 10px 0 0;
+  width: 35px; }
 
-.sliders input {
+.select-input {
   position: relative;
   top: 2px; }
-
-#colorSelect button {
-  border: none;
-  border-top: 1px solid #6A845F;
-  border-radius: 0 0 5px 5px;
-  clear: both;
-  margin: 10px -10px -7px;
-  padding: 5px 10px;
-  width: 325px; }
 
 /*# sourceMappingURL=application.css.map */
