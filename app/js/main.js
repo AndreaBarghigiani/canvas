@@ -1,42 +1,37 @@
-var canvas = document.getElementsByClassName('drawing-area')[0];
-var context = canvas.getContext('2d');
-var lastEvent;
-var mouseDown = false;
-var mouseMovedOffCanvas = false;
-var inputs = document.querySelectorAll('input[type=range]');
-var restOfPage = document.getElementsByTagName('body');
-var selected = document.getElementsByClassName('selected')[0];
-var color = window.getComputedStyle(selected, null).getPropertyValue('background-color');
-var red = document.getElementById('red');
-var green = document.getElementById('green');
-var blue = document.getElementById('blue');
-var newColor = document.getElementsByClassName('color-new')[0];
-var buttonReveal = document.getElementById('revealColorSelect');
-var buttonAdd = document.getElementById('addNewColor');
-var selectionDiv = document.getElementById('colorSelect');
-var colorElements = document.getElementsByClassName('color-element');
-var availableColors = document.getElementsByClassName('colors-list')[0];
+var canvas = document.getElementsByClassName('drawing-area')[0]
+var context = canvas.getContext('2d')
+var lastEvent
+var mouseDown = false
+var mouseMovedOffCanvas = false
+var inputs = document.querySelectorAll('input[type=range]')
+var restOfPage = document.getElementsByTagName('body')
+var selected = document.getElementsByClassName('selected')[0]
+var color = window.getComputedStyle(selected, null).getPropertyValue('background-color')
+var red = document.getElementById('red')
+var green = document.getElementById('green')
+var blue = document.getElementById('blue')
+var newColor = document.getElementsByClassName('color-new')[0]
+var buttonReveal = document.getElementById('revealColorSelect')
+var buttonAdd = document.getElementById('addNewColor')
+var selectionDiv = document.getElementById('colorSelect')
+var availableColors = document.getElementsByClassName('colors-list')[0]
+var colors = document.querySelectorAll('.color')
 
-// Selecting color
-
-  for (var i = 0; i < colorElements.length; i++) {
-    colorElements[i].addEventListener('click', function (e) {
-      var current = this;
-      for (var i = 0; i < colorElements.length; i++) {
-        if (current !== colorElements[i]) {
-          colorElements[i].classList.remove('selected')
-        } else if (current.classList.contains('selected') === true) {
-          current.classList.remove('selected')
-        } else {
-          if (current.id !== 'revealColorSelect') {
-            current.classList.add('selected');
-          }
-        }
-      }
-      e.preventDefault()
-    })
+function selectColor (e) {
+  for (var i = 0; i < colors.length; i++) {
+    colors[i].classList.remove('selected')
+  }
+  e.target.classList.add('selected')
+  color = window.getComputedStyle(e.target, null).getPropertyValue('background-color')
 }
 
+function allowSelecting () {
+  var colors = document.querySelectorAll('.color')
+  for (var i = 0; i < colors.length; i++) {
+    colors[i].addEventListener('click', selectColor, false)
+  }
+}
+allowSelecting()
 // Toggle visibility of adding panel
 
 buttonReveal.addEventListener('click', function () {
@@ -63,6 +58,7 @@ buttonAdd.addEventListener('click', function () {
   addColor.className = 'color-element color'
   addColor.style.backgroundColor = newColor.style.backgroundColor
   availableColors.insertBefore(addColor, buttonReveal)
+  allowSelecting()
 })
 
 // Drawing functions
