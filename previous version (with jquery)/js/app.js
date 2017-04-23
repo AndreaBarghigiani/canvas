@@ -7,7 +7,7 @@ var mouseMovedOffCanvas = false
 var $restOfPage = $('body')
 $('.controls').on('click', 'li', function () {
   $(this).siblings().removeClass('selected')
-  if ($(this).attr('id') != 'revealColorSelect') {
+  if ($(this).attr('id') !== 'revealColorSelect') {
     $(this).addClass('selected')
     color = $(this).css('background-color')
   }

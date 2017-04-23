@@ -32,6 +32,7 @@ function allowSelecting () {
   }
 }
 allowSelecting()
+
 // Toggle visibility of adding panel
 
 buttonReveal.addEventListener('click', function () {
