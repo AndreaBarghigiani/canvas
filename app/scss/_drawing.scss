@@ -101,9 +101,13 @@ body {
 .button {
   border: 0;
   height: 40px;
+  opacity: .3;
   width: 40px;
   &:focus {
     outline: none;
+  }
+  &:hover {
+    opacity: 1;
   }
 }
 

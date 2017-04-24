@@ -88,9 +88,12 @@ body {
 .button {
   border: 0;
   height: 40px;
+  opacity: .3;
   width: 40px; }
   .button:focus {
     outline: none; }
+  .button:hover {
+    opacity: 1; }
 
 .button-clear {
   background: url("../img/clear.svg") no-repeat;
