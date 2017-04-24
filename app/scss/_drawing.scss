@@ -78,28 +78,58 @@ body {
   width: 720px;
 }
 
-.tooltip-download {
-  bottom: 10px;
+// Tooltips - clear and save
+
+.tooltip {
   color: $light;
   opacity: 0;
-  position: absolute;
-  right: -45px;
   text-decoration: none;
 }
 
-.button-download {
-  background: url('../img/save.svg') no-repeat;
-  background-size: contain;
-  border: 0;
-  bottom: 0;
-  height: 40px;
+.tooltip-download {
+  bottom: 10px;
   position: absolute;
-  right: 0;
+  right: -45px;
+}
+
+.tooltip-clear {
+  bottom: 60px;
+  position: absolute;
+  right: -45px;
+}
+
+.button {
+  border: 0;
+  height: 40px;
   width: 40px;
   &:focus {
     outline: none;
   }
 }
+
+.button-clear {
+  background: url('../img/clear.svg') no-repeat;
+  background-size: contain;
+  border: 0;
+  bottom: 50px;
+  position: absolute;
+  right: 0;
+}
+
+.button-download {
+  background: url('../img/save.svg') no-repeat;
+  background-size: contain;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+
+// Show tooltips on hover
+
 .save:hover .tooltip-download {
+  opacity: 1;
+}
+
+.clear:hover .tooltip-clear {
   opacity: 1;
 }

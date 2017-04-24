@@ -14,6 +14,7 @@ var newColor = document.getElementsByClassName('color-new')[0]
 var buttonReveal = document.getElementById('revealColorSelect')
 var buttonAdd = document.getElementById('addNewColor')
 var buttonSave = document.getElementsByClassName('save')[0];
+var buttonClear = document.getElementsByClassName('clear')[0];
 var selectionDiv = document.getElementById('colorSelect')
 var availableColors = document.getElementsByClassName('colors-list')[0]
 var colors = document.querySelectorAll('.color')
@@ -108,4 +109,12 @@ buttonSave.addEventListener('click', saveImage)
 
 function saveImage () {
   this.href = canvas.toDataURL('image/png')
+}
+
+// Clear canvas
+
+buttonClear.addEventListener('click', clear)
+
+function clear() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
 }
