@@ -71,3 +71,35 @@ body {
   height: 46px;
   width: 46px;
 }
+
+.wrap {
+  margin: 0 auto;
+  position: relative;
+  width: 720px;
+}
+
+.tooltip-download {
+  bottom: 10px;
+  color: $light;
+  opacity: 0;
+  position: absolute;
+  right: -45px;
+  text-decoration: none;
+}
+
+.button-download {
+  background: url('../img/save.svg') no-repeat;
+  background-size: contain;
+  border: 0;
+  bottom: 0;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  width: 40px;
+  &:focus {
+    outline: none;
+  }
+}
+.save:hover .tooltip-download {
+  opacity: 1;
+}

@@ -13,6 +13,7 @@ var blue = document.getElementById('blue')
 var newColor = document.getElementsByClassName('color-new')[0]
 var buttonReveal = document.getElementById('revealColorSelect')
 var buttonAdd = document.getElementById('addNewColor')
+var buttonSave = document.getElementsByClassName('save')[0];
 var selectionDiv = document.getElementById('colorSelect')
 var availableColors = document.getElementsByClassName('colors-list')[0]
 var colors = document.querySelectorAll('.color')
@@ -99,4 +100,12 @@ canvas.onmouseover = function (e) {
 restOfPage.onmouseup = function () {
   mouseMovedOffCanvas = false
   mouseDown = false
+}
+
+// Save image
+
+buttonSave.addEventListener('click', saveImage)
+
+function saveImage () {
+  this.href = canvas.toDataURL('image/png')
 }

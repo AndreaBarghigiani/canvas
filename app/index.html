@@ -16,7 +16,12 @@
     <![endif]-->
 </head>
 <body>
-<canvas class="drawing-area" width="600" height="400"></canvas>
+<div class="wrap">
+    <canvas class="drawing-area" width="600" height="400"></canvas>
+    <a class="save" href="#" download="drawing.png" target="_blank">
+      <input class="button-download" type="button" value="">  <span class="tooltip tooltip-download">Save</span>
+    </a>
+</div>
 <div class="controls">
     <ul class="colors-list">
         <li class="color-element color selected"></li>
@@ -25,17 +30,17 @@
         <li class="color-element color"></li>
         <li class="color-element control control-add" id="revealColorSelect"></li>
     </ul>
-    <div id="colorSelect" class="select"> <span class="color-new"></span>
+    <div id="colorSelect" class="select"><span class="color-new"></span>
         <div class="select-sliders">
             <div class="select-slider">
                 <label for="red" class="select-label">Red</label>
-                <input id="red" class="select-input" name="red" type="range" min=0 max=255 value=0> </div>
+                <input id="red" class="select-input" name="red" type="range" min=0 max=255 value=0></div>
             <div class="select-slider">
                 <label for="green" class="select-label">Green</label>
-                <input id="green" class="select-input" name="green" type="range" min=0 max=255 value=0> </div>
-                <div class="select-slider">
+                <input id="green" class="select-input" name="green" type="range" min=0 max=255 value=0></div>
+            <div class="select-slider">
                 <label for="blue" class="select-label">Blue</label>
-                <input id="blue" class="select-input" name="blue" type="range" min=0 max=255 value=0> </div>
+                <input id="blue" class="select-input" name="blue" type="range" min=0 max=255 value=0></div>
         </div>
         <div>
             <button id="addNewColor" class="button-add">Add Color</button>
