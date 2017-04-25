@@ -1,7 +1,36 @@
 body {
   background: #9f79a7;
   background: linear-gradient(to right, #9f79a7, #a48cd4);
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  max-width: 100%; }
+
+.overlay {
+  display: none; }
+  @media screen and (max-width: 850px) {
+    .overlay {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      background: rgba(164, 140, 212, 0.8);
+      bottom: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0; }
+      .overlay .mobile-info {
+        -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: center;
+        color: #fff;
+        font-size: 36px;
+        max-width: 90%;
+        text-align: center; } }
 
 .drawing-area {
   background: #fff;
@@ -12,11 +41,15 @@ body {
   margin: 50px auto 10px; }
 
 .controls {
-  border-radius: 5px;
-  margin: 0 auto;
-  min-height: 60px;
-  overflow: hidden;
-  width: 600px; }
+  display: none; }
+  @media screen and (min-width: 850px) {
+    .controls {
+      border-radius: 5px;
+      display: block;
+      margin: 0 auto;
+      min-height: 60px;
+      overflow: hidden;
+      width: 600px; } }
 
 .colors-list {
   float: left;
@@ -66,9 +99,13 @@ body {
   width: 46px; }
 
 .wrap {
-  margin: 0 auto;
-  position: relative;
-  width: 710px; }
+  display: none; }
+  @media screen and (min-width: 850px) {
+    .wrap {
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      width: 710px; } }
 
 .tooltip {
   color: #fff;

@@ -3,6 +3,31 @@
 body {
   @include gradient($primary, $secondary, 'horizontal');
   font-family: sans-serif;
+  max-width: 100%;
+}
+
+.overlay {
+  display: none;
+
+  @media screen and (max-width: 850px) {
+    align-items: center;
+    background: rgba($secondary, .8);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    .mobile-info {
+      align-self: center;
+      color: $light;
+      font-size: 36px;
+      max-width: 90%;
+      text-align: center;
+    }
+  }
 }
 
 .drawing-area {
@@ -15,11 +40,16 @@ body {
 }
 
 .controls {
-  border-radius: 5px;
-  margin: 0 auto;
-  min-height: 60px;
-  overflow: hidden;
-  width: 600px;
+  display: none;
+
+  @media screen and (min-width: 850px) {
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    min-height: 60px;
+    overflow: hidden;
+    width: 600px;
+  }
 }
 
 .colors-list {
@@ -73,9 +103,14 @@ body {
 }
 
 .wrap {
-  margin: 0 auto;
-  position: relative;
-  width: 710px;
+  display: none;
+
+  @media screen and (min-width: 850px) {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 710px;
+  }
 }
 
 // Tooltips - clear and save
@@ -103,9 +138,11 @@ body {
   height: 35px;
   opacity: .3;
   width: 35px;
+
   &:focus {
     outline: none;
   }
+
   &:hover {
     opacity: 1;
   }
