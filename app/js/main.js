@@ -1,26 +1,26 @@
-var canvas = document.getElementsByClassName('drawing-area')[0]
-var context = canvas.getContext('2d')
-var lastEvent
-var mouseDown = false
-var mouseMovedOffCanvas = false
-var inputs = document.querySelectorAll('input[type=range]')
-var restOfPage = document.getElementsByTagName('body')
-var selected = document.getElementsByClassName('selected')[0]
-var color = window.getComputedStyle(selected, null).getPropertyValue('background-color')
-var red = document.getElementById('red')
-var green = document.getElementById('green')
-var blue = document.getElementById('blue')
-var newColor = document.getElementsByClassName('color-new')[0]
-var buttonReveal = document.getElementById('revealColorSelect')
-var buttonAdd = document.getElementById('addNewColor')
-var buttonSave = document.getElementsByClassName('save')[0];
-var buttonClear = document.getElementsByClassName('clear')[0];
-var selectionDiv = document.getElementById('colorSelect')
-var availableColors = document.getElementsByClassName('colors-list')[0]
-var colors = document.querySelectorAll('.color')
+const canvas = document.getElementsByClassName('drawing-area')[0]
+const context = canvas.getContext('2d')
+const inputs = document.querySelectorAll('input[type=range]')
+const restOfPage = document.querySelector('body')
+let lastEvent
+let mouseDown = false
+let mouseMovedOffCanvas = false
+let selected = document.querySelector('.selected')
+let color = window.getComputedStyle(selected, null).getPropertyValue('background-color')
+const red = document.getElementById('red')
+const green = document.getElementById('green')
+const blue = document.getElementById('blue')
+const newColor = document.querySelector('.color-new')
+const buttonReveal = document.getElementById('revealColorSelect')
+const buttonAdd = document.getElementById('addNewColor')
+const buttonSave = document.querySelector('.save');
+const buttonClear = document.querySelector('.clear');
+const selectionDiv = document.getElementById('colorSelect')
+const availableColors = document.querySelector('.colors-list')
+const colors = document.querySelectorAll('.color')
 
 function selectColor (e) {
-  for (var i = 0; i < colors.length; i++) {
+  for (let i = 0; i < colors.length; i++) {
     colors[i].classList.remove('selected')
   }
   e.target.classList.add('selected')
@@ -28,36 +28,37 @@ function selectColor (e) {
 }
 
 function allowSelecting () {
-  var colors = document.querySelectorAll('.color')
-  for (var i = 0; i < colors.length; i++) {
+  const colors = document.querySelectorAll('.color')
+  for (let i = 0; i < colors.length; i++) {
     colors[i].addEventListener('click', selectColor, false)
   }
 }
+
 allowSelecting()
 
 // Toggle visibility of adding panel
 
-buttonReveal.addEventListener('click', function () {
+buttonReveal.addEventListener('click', () => {
   selectionDiv.style.display = selectionDiv.style.display === 'block' ? 'none' : 'block'
 })
 
 // Change color - sliders
 
 function changeColor () {
-  var r = red.value
-  var g = green.value
-  var b = blue.value
+  let r = red.value
+  let g = green.value
+  let b = blue.value
   newColor.style.backgroundColor = 'rgb(' + r + ',' + g + ', ' + b + ')'
 }
 
-for (var j = 0; j < inputs.length; j++) {
+for (let j = 0; j < inputs.length; j++) {
   inputs[j].addEventListener('input', changeColor, false)
 }
 
 // Add new color
 
-buttonAdd.addEventListener('click', function () {
-  var addColor = document.createElement('li')
+buttonAdd.addEventListener('click', () => {
+  let addColor = document.createElement('li')
   addColor.className = 'color-element color'
   addColor.style.backgroundColor = newColor.style.backgroundColor
   availableColors.insertBefore(addColor, buttonReveal)
@@ -66,12 +67,12 @@ buttonAdd.addEventListener('click', function () {
 
 // Drawing functions
 
-canvas.onmousedown = function (e) {
+canvas.onmousedown = (e) => {
   lastEvent = e
   mouseDown = true
 }
 
-canvas.onmousemove = function (e) {
+canvas.onmousemove = (e) => {
   if (mouseDown) {
     context.beginPath()
     context.moveTo(lastEvent.offsetX, lastEvent.offsetY)
@@ -82,23 +83,21 @@ canvas.onmousemove = function (e) {
   }
 }
 
-canvas.onmouseup = function () {
-  mouseDown = false
-}
+canvas.onmouseup = () => mouseDown = false
 
-canvas.onmouseout = function () {
+canvas.onmouseout = () => {
   mouseMovedOffCanvas = mouseDown === true
   mouseDown = false
 }
 
-canvas.onmouseover = function (e) {
+canvas.onmouseover = (e) => {
   lastEvent = e
   if (mouseMovedOffCanvas === true) {
     mouseDown = true
   }
 }
 
-restOfPage.onmouseup = function () {
+restOfPage.onmouseup = () => {
   mouseMovedOffCanvas = false
   mouseDown = false
 }
