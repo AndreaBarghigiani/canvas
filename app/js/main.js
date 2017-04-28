@@ -63,6 +63,7 @@ buttonAdd.addEventListener('click', () => {
   addColor.style.backgroundColor = newColor.style.backgroundColor
   availableColors.insertBefore(addColor, buttonReveal)
   allowSelecting()
+  red.value = green.value = blue.value = 125;
   newColor.style.backgroundColor = 'transparent';
 })
 
