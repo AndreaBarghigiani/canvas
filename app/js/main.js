@@ -13,25 +13,24 @@ const blue = document.getElementById('blue')
 const newColor = document.querySelector('.color-new')
 const buttonReveal = document.getElementById('revealColorSelect')
 const buttonAdd = document.getElementById('addNewColor')
-const buttonSave = document.querySelector('.save');
-const buttonClear = document.querySelector('.clear');
+const buttonSave = document.querySelector('.save')
+const buttonClear = document.querySelector('.clear')
 const selectionDiv = document.getElementById('colorSelect')
 const availableColors = document.querySelector('.colors-list')
-const colors = document.querySelectorAll('.color')
 
 function selectColor (e) {
-  for (let i = 0; i < colors.length; i++) {
-    colors[i].classList.remove('selected')
+  if (e.target.classList.contains('color')) {
+    let colors = document.querySelectorAll('.color')
+    for (let i = 0; i < colors.length; i++) {
+      colors[i].classList.remove('selected')
+    }
+    e.target.classList.add('selected')
+    color = window.getComputedStyle(e.target, null).getPropertyValue('background-color')
   }
-  e.target.classList.add('selected')
-  color = window.getComputedStyle(e.target, null).getPropertyValue('background-color')
 }
 
 function allowSelecting () {
-  const colors = document.querySelectorAll('.color')
-  for (let i = 0; i < colors.length; i++) {
-    colors[i].addEventListener('click', selectColor, false)
-  }
+  availableColors.addEventListener('click', selectColor, false)
 }
 
 allowSelecting()
@@ -62,9 +61,8 @@ buttonAdd.addEventListener('click', () => {
   addColor.className = 'color-element color'
   addColor.style.backgroundColor = newColor.style.backgroundColor
   availableColors.insertBefore(addColor, buttonReveal)
-  allowSelecting()
-  red.value = green.value = blue.value = 125;
-  newColor.style.backgroundColor = 'transparent';
+  red.value = green.value = blue.value = 125
+  newColor.style.backgroundColor = 'transparent'
 })
 
 // Drawing functions
@@ -116,6 +114,6 @@ function saveImage () {
 
 buttonClear.addEventListener('click', clear)
 
-function clear() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
+function clear () {
+  context.clearRect(0, 0, canvas.width, canvas.height)
 }
